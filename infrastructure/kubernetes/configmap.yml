@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  db_host: "postgres-service"
+  db_port: "5432"
+  db_name: "saas_app"
+  redis_host: "redis-service"
+  redis_port: "6379"
+  api_url: "http://backend-service"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+type: Opaque
+stringData:
+  db_password: "your-secure-password-here"
+  jwt_secret: "your-jwt-secret-here"
+  stripe_secret: "sk_live_xxxxx"
